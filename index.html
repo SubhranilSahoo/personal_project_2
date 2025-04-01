@@ -21,6 +21,79 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    body,
+    html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #home {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-container {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .carousel-item {
+      position: relative;
+      height: 100vh;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      text-align: left;
+      width: auto;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-item.active .carousel-caption {
+      opacity: 1;
+    }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 5%;
+      justify-content: flex-start;
+    }
+
+    .carousel-indicators button {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-caption {
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -32,7 +105,6 @@
       <i class="bi d-flex align-items-center"><img src="assets/img/govtofindia.png" alt="Font change icon"
           width="24"><span>LOREM IPSUM</span></i>
 
-      <!-- GIGW Modifications -->
       <div class="top-align d-none d-md-flex align-items-stretch">
         <div class="d-flex justify-content-between">
           <a class="top2 sitemap p-2 me-1" href="#" title="Site map">
@@ -45,10 +117,8 @@
         </div>
 
         <div class="d-flex justify-content-between">
-          <!-- GIGW Modifications -->
           <a class="track p-2 small text-uppercase fw-bold skip" href="#main-contenet"> Skip to Main Content </a>
 
-          <!-- New Iservices Login -->
           <a target="_blank" rel="noopener noreferrer" class="track p-2 small text-uppercase fw-bold" href="#">
             <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>
             Register
@@ -130,7 +200,8 @@
         </a>
 
         <!-- GIGW Modifications -->
-        <a class="track p-2 small text-uppercase fw-bold" href="#main-contenet" style="border-right: 0;"> Skip to Main Content </a>
+        <a class="track p-2 small text-uppercase fw-bold" href="#main-contenet" style="border-right: 0;"> Skip to Main
+          Content </a>
       </div>
 
     </div>
@@ -154,7 +225,7 @@
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#events">Events</a></li>
-          </ul>
+        </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
 
@@ -163,7 +234,50 @@
   </header>
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero">
+  <section id="home" class="d-flex align-items-center">
+    <div class="video-container">
+      <video autoplay muted loop poster="assets/image/sean-pollock-PhYq704ffdA-unsplash.jpg">
+        <source src="assets/video/Hero.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="overlay"></div>
+    </div>
+    <div class="container text-white position-relative">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="carousel-caption">
+              <h2>Welcome to Our Website</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, fuga.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption">
+              <h2>Experience the Best Services</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur veritatis,
+                voluptates enim corporis tempore ducimus porro magnam molestiae optio? Ab!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption">
+              <h2>Join Us for an Exciting Journey</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section id="hero">
     <div class="hero-container">
       <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
@@ -219,7 +333,7 @@
 
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- End Hero Section -->
 
   <main id="main">
@@ -309,19 +423,22 @@
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="200">
             <div class="icon"><i class="bi bi-card-checklist"></i></div>
             <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Scheme discovery, composite application form, scheme apply and approvals, eligibility check</p>
+            <p class="description">Scheme discovery, composite application form, scheme apply and approvals, eligibility
+              check</p>
           </div>
 
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
             <div class="icon"><i class="bi bi-bar-chart"></i></div>
             <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Authentication, De-Duplication of Data, Authentication through Government databases, verification of data provided by citizen</p>
+            <p class="description">Authentication, De-Duplication of Data, Authentication through Government databases,
+              verification of data provided by citizen</p>
           </div>
 
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="200">
             <div class="icon"><i class="bi bi-binoculars"></i></div>
             <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Budget management, fund disbursement, fund reconciliation, integrations with PFMS, FinAssam</p>
+            <p class="description">Budget management, fund disbursement, fund reconciliation, integrations with PFMS,
+              FinAssam</p>
           </div>
 
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
@@ -333,7 +450,8 @@
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="400">
             <div class="icon"><i class="bi bi-calendar4-week"></i></div>
             <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Availability of a unified view to the citizens for easy discovery of the available schemes</p>
+            <p class="description">Availability of a unified view to the citizens for easy discovery of the available
+              schemes</p>
           </div>
 
         </div>
@@ -505,7 +623,8 @@
   <footer id="footer">
     <div class="container">
       <h3>The COMPANY</h3>
-      <p>Disclaimer :  See the http://www.gs.com/disclaimer/afg/ for important information regarding this message and your reliance on
+      <p>Disclaimer : See the http://www.gs.com/disclaimer/afg/ for important information regarding this message and
+        your reliance on
         information contained in it. This message may contain information that is confidential or privileged. If you are
         not the intended recipient, please advise the sender immediately and delete this message. See the
         http://www.gs.com/disclaimer/email/ for further information on confidentiality and the risks inherent in
